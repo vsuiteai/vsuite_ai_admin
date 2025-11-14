@@ -1,0 +1,44 @@
+@import "tailwindcss";
+/* @import "@nuxt/ui"; */
+
+.neutral {
+  color: #8f95b2;
+}
+
+.neutral_2 {
+  color: #696f8c;
+}
+
+#nav_item span {
+  color: #e5e7eb;
+}
+
+#nav_item svg {
+  fill: #e5e7eb !important;
+  stroke: #e5e7eb !important;
+}
+
+#nav_item.router-link-active {
+  border-radius: 200px;
+  background-color: #1e1e23;
+}
+
+#nav_item:hover span,
+#nav_item.router-link-active span {
+  color: #e10600;
+}
+
+#nav_item:hover svg,
+#nav_item.router-link-active svg {
+  fill: #e10600 !important;
+  stroke: #e10600 !important;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 50%;
+}
