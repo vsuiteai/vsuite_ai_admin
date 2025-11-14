@@ -23,7 +23,7 @@ const format_answer = (answer: string | string[] | null) => {
       v-if="answers_available"
       class="font-[500] text-[16px]/[21px] font-[#000000]"
     >
-      CEO Onboarding
+      CEO Form
     </span>
 
     <span v-else class="font-[500] text-[16px]/[21px] font-[#000000]">
