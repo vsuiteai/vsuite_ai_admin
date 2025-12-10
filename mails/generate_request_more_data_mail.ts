@@ -1,5 +1,6 @@
 const generate_request_more_data_mail = (
   metricsHtmlString: string,
+  asset_upload_link: string,
   fileTypes?: string | string[]
 ) => {
   const toArray = (v?: string | string[]) =>
@@ -53,7 +54,12 @@ const generate_request_more_data_mail = (
       <p>The specific metrics still needed are listed below:</p>
       ${metricsHtmlString}
 
-      <p>Please upload updated ${uploadPhrase} that include these metrics so we can continue processing your submission.</p>
+      <p>Please upload updated ${uploadPhrase} that include these metrics so we can continue processing your submission. To upload your file, click the link below:</p>        
+    
+      <ol>
+        <li><a href="${asset_upload_link}">Upload required financial documents.</a></li>
+      </ol>
+
       <p>If this request does not apply, you may disregard this message.</p>
 
       <p>Thank you for your cooperation.</p>

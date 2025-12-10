@@ -1,5 +1,6 @@
 const generate_incomplete_file_submission_mail = (
-  metricsHtmlString: string
+  metricsHtmlString: string,
+  asset_upload_link: string
 ) => {
   return `
 <!DOCTYPE html>
@@ -34,12 +35,16 @@ const generate_incomplete_file_submission_mail = (
     <div class="container">
         <h2>Incomplete File Submission</h2>
         <p>Hello,</p>
-        <p>We have reviewed the files you recently uploaded, and unfortunately, they do not contain all the necessary data we require to proceed.</p>
-        <p>A few important metrics are still missing. Please ensure you upload files that include all relevant information</p>
+        <p>We have reviewed the files you recently uploaded, and unfortunately, they do not contain all the necessary data we require to proceed. A few important metrics are still missing. Please ensure you upload files that include all relevant information</p>
         
         <p>The following metrics are still required:</p>
         ${metricsHtmlString}
-        <p>Please upload updated files that include these missing metrics so we can continue processing your submission.</p>
+
+        <p>Please upload updated files that include these missing metrics so we can continue processing your submission. To upload your file, click the link below:</p>        
+        <ol>
+        <li><a href="${asset_upload_link}">Upload required financial documents.</a></li>
+        </ol>
+
         <p>If this message does not apply to your situation, you may safely disregard it.</p>
         <p>Thank you for your attention.</p>
         <p>Best regards,<br />Benjamin Strategy Group</p>

@@ -194,14 +194,23 @@ const email_client_by_uuid = async (
 
   const resolved_client = client.dataValues as ClientDetail;
 
+  const CLIENT_FACING_DOMAIN = process.env.CLIENT_FACING_DOMAIN ?? "";
+  const asset_upload_link = `${CLIENT_FACING_DOMAIN}/forms/asset-upload?uid=${client_uid}`;
+
   switch (mail_type) {
     case "insufficient_files":
       subject = "Incomplete File Submission";
-      html_body = generate_incomplete_file_submission_mail(metricsHtmlString);
+      html_body = generate_incomplete_file_submission_mail(
+        metricsHtmlString,
+        asset_upload_link
+      );
       break;
     case "request_more_data":
       subject = "Request for Additional Data";
-      html_body = generate_request_more_data_mail(metricsHtmlString);
+      html_body = generate_request_more_data_mail(
+        metricsHtmlString,
+        asset_upload_link
+      );
       break;
   }
 

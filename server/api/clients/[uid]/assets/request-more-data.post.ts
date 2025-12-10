@@ -47,7 +47,7 @@ export default defineEventHandler(async (event) => {
 
       await email_client_by_uuid(
         client_uid,
-        "insufficient_files",
+        "request_more_data",
         metricsHtmlString
       );
 
