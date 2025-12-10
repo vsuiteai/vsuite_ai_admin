@@ -5,12 +5,25 @@ defineProps<{
 
 const clientController = useClientController();
 const filesController = useFilesController();
-
 const route = useRoute();
 
 const uid = route.params.uid as string;
 
 const files = ref<ClientUploadedFile[] | null>(null);
+const sending_request = ref(false);
+
+const request_more_data = async () => {
+  if (sending_request.value) return;
+  sending_request.value = true;
+
+  try {
+    const res = await clientController.request_more_data(uid);
+    alert("Request sent successfully.");
+  } catch (error) {
+    alert("Failed to send request.");
+  }
+  sending_request.value = false;
+};
 
 onBeforeMount(async () => {
   const res = await clientController.get_client_files(uid);
@@ -36,7 +49,8 @@ onBeforeMount(async () => {
     </div>
 
     <button
-      disabled
+      :disabled="sending_request"
+      @click="request_more_data"
       class="flex items-center justify-center p-[16px] h-[48px] w-[170px] gap-[4px] bg-[#ffffff] rounded-[8px] border-[1px] border-[#EDEFF5]"
     >
       <span class="font-[500] text-[15px]/[20px] text-[#E10600]">

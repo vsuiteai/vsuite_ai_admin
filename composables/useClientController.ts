@@ -226,6 +226,27 @@ export const useClientController = () => {
     }
   };
 
+  const request_more_data = async (client_id: string) => {
+    if (!process.client) return;
+
+    try {
+      const axios = (await import("axios")).default;
+
+      const url = `/api/clients/${client_id}/assets/request-more-data`;
+
+      const response = await axios.post(url);
+
+      return response.data; // { error, data, message }
+    } catch (error: any) {
+      const message =
+        error?.response?.data?.message || // API-sent error
+        error?.message || // Network error, etc.
+        "An unknown error occurred";
+
+      throw new Error(message);
+    }
+  };
+
   return {
     get_clients,
     get_client_submissions,
@@ -234,5 +255,6 @@ export const useClientController = () => {
     get_clients_files_analytics,
     get_client,
     attach_consultants,
+    request_more_data,
   };
 };
