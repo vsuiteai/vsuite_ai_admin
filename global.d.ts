@@ -88,7 +88,7 @@ declare global {
     cl_ver_created_at: string;
   };
 
-  type EmailTypes = "insufficient_files";
+  type EmailTypes = "insufficient_files" | "request_more_data";
 
   type AnActivityLogEntry = {
     actor: object;

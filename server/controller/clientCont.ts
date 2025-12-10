@@ -14,6 +14,7 @@ import { fn, col, Op } from "sequelize";
 import { generateExpiresAt } from "../utils/generateExpiresAt";
 import { generate_verification_mail } from "~/mails/verification_mail";
 import { v4 as uuidv4 } from "uuid";
+import { generate_request_more_data_mail } from "~/mails/generate_request_more_data_mail";
 
 const get_clients = async ({
   limit = 10,
@@ -197,6 +198,10 @@ const email_client_by_uuid = async (
     case "insufficient_files":
       subject = "Incomplete File Submission";
       html_body = generate_incomplete_file_submission_mail(metricsHtmlString);
+      break;
+    case "request_more_data":
+      subject = "Request for Additional Data";
+      html_body = generate_request_more_data_mail(metricsHtmlString);
       break;
   }
 
