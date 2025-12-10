@@ -41,9 +41,9 @@ const generate_incomplete_file_submission_mail = (
         ${metricsHtmlString}
 
         <p>Please upload updated files that include these missing metrics so we can continue processing your submission. To upload your file, click the link below:</p>        
-        <ol>
+        <ul>
         <li><a href="${asset_upload_link}">Upload required financial documents.</a></li>
-        </ol>
+        </ul>
 
         <p>If this message does not apply to your situation, you may safely disregard it.</p>
         <p>Thank you for your attention.</p>

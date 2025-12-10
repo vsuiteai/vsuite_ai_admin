@@ -56,9 +56,9 @@ const generate_request_more_data_mail = (
 
       <p>Please upload updated ${uploadPhrase} that include these metrics so we can continue processing your submission. To upload your file, click the link below:</p>        
     
-      <ol>
+      <ul>
         <li><a href="${asset_upload_link}">Upload required financial documents.</a></li>
-      </ol>
+      </ul>
 
       <p>If this request does not apply, you may disregard this message.</p>
 
